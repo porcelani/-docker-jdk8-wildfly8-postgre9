@@ -1,0 +1,16 @@
+wildfly:
+    image: porcelani/jdk8-wildfly8-ear
+    container_name: wildfly-container
+    ports:
+        - "8080:8080"
+        - "9990:9990"
+    links:
+        - postgres:postgres
+postgres:
+    image: postgres
+    container_name: postgres-container
+    ports:
+        - "5432:5432"
+    environment:
+        POSTGRES_USER: 'postgres'
+        POSTGRES_PASSWORD: 'postgres'
